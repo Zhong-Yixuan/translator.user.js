@@ -25,7 +25,7 @@
         "preposition" //介词
     ];
 
-    let explaination_Show = 1;
+    let explanation_Show = 1;
 
     let FLAG = 0;
     let TIME = 100;
@@ -34,7 +34,7 @@
     let selectionTimeout = null;   // holds the 3-second timer ID
     let popupElement = null;       // the floating box (DOM element)
     let atten = null;
-    let pendingText = '';          // the text we are currently waiting to explain
+    let pendingText = '';          // the text we are currently waiting to explan
 
     // ---------- Drag-related variables ----------
     let isDragging = false;        // true while the user is dragging the popup
@@ -90,12 +90,12 @@
 
         // Create the main container
         const popup = document.createElement('div');
-        popup.id = 'text-explainer-popup';
+        popup.id = 'text-explaner-popup';
 
         // ---------- 1. The drag handle (the top bar you can grab) ----------
 
         const dragHandle = document.createElement('div');
-        dragHandle.className = 'explainer-drag-handle';
+        dragHandle.className = 'explaner-drag-handle';
 
         // Style for the drag handle (grey bar, grab cursor)
         dragHandle.style.cssText = `
@@ -226,7 +226,7 @@
 
             // If we had a handle element, restore its cursor
             if (popupElement) {
-                const handle = popupElement.querySelector('.explainer-drag-handle');// find in son and grandson and grandgrandson and so on
+                const handle = popupElement.querySelector('.explaner-drag-handle');// find in son and grandson and grandgrandson and so on
                 if (handle) handle.style.cursor = 'grab';
                 // Optionally re-enable smooth transitions for future animations
                 // popupElement.style.transition = '';
@@ -322,11 +322,11 @@
             //if (entry[i].definitions) html += entry[i].definitions[0].definition;
             if (entry[i].definitions) {html += `<h3 class="definition">- ${Ikun(entry[i].definitions[0].definition).trim()}</h3>`;
                 let yu = 0, yu1 = 0, yu2 = 0;
-                while(yu < explaination_Show) {
+                while(yu < explanation_Show) {
             if (entry[i].definitions[0].parsedExamples && entry[i].definitions[0].parsedExamples.length > yu1) html += `<p class="explanation">${Ikun(entry[i].definitions[0].parsedExamples[yu1++].example).trim()}</p>`;
             else if(entry[i].definitions[0].examples && entry[i].definitions[0].examples.length > yu2) html += `<p class="explanation">${Ikun(entry[i].definitions[0].examples[yu2++]).trim()}</p>`;
-                                       else yu = explaination_Show;yu++;}}
-            //if (entry[i].definitions[0].parsedExamples) html += `<p class="explaination">${Ikun(entry[i].definitions[0].parsedExamples[0].example)}</p>`;
+                                       else yu = explanation_Show;yu++;}}
+            //if (entry[i].definitions[0].parsedExamples) html += `<p class="explanation">${Ikun(entry[i].definitions[0].parsedExamples[0].example)}</p>`;
             //else if(entry[i].definitions[0].examples) html += `<p class="explanation">${Ikun(entry[i].definitions[0].examples[0])}</p>`;}
         }html += `</ul></div></div>`;
         if (yuanshen == entry.length + 4){html = ``; hidePopup();return ;}
@@ -460,7 +460,7 @@
             return;
         }
 
-        // Remember what we are waiting to explain
+        // Remember what we are waiting to explan
         pendingText = text;
 
         // Start the 3-second countdown
