@@ -2,6 +2,8 @@
 // @name         以此缅怀伟大的康老师
 // @namespace    http://tampermonkey.net/
 // @version      2.0
+// @downloadURL  https://github.com/Zhong-Yixuan/translator.user.js/main/yuanshen.user.js
+// @updateURL    https://github.com/Zhong-Yixuan/translator.user.js/main/yuanshen.user.js
 // @description  Select text, wait 3 seconds, see meaning; drag the popup by its top bar
 // @author       Zhong_Yixuan
 // @match        *://*/*
@@ -321,7 +323,7 @@
             if (entry[i].definitions) {html += `<h3 class="definition">- ${Ikun(entry[i].definitions[0].definition).trim()}</h3>`;
                 let yu = 0, yu1 = 0, yu2 = 0;
                 while(yu < explaination_Show) {
-            if (entry[i].definitions[0].parsedExamples && entry[i].definitions[0].parsedExamples.length > yu1) html += `<p class="explaination">${Ikun(entry[i].definitions[0].parsedExamples[yu1++].example).trim()}</p>`;
+            if (entry[i].definitions[0].parsedExamples && entry[i].definitions[0].parsedExamples.length > yu1) html += `<p class="explanation">${Ikun(entry[i].definitions[0].parsedExamples[yu1++].example).trim()}</p>`;
             else if(entry[i].definitions[0].examples && entry[i].definitions[0].examples.length > yu2) html += `<p class="explanation">${Ikun(entry[i].definitions[0].examples[yu2++]).trim()}</p>`;
                                        else yu = explaination_Show;yu++;}}
             //if (entry[i].definitions[0].parsedExamples) html += `<p class="explaination">${Ikun(entry[i].definitions[0].parsedExamples[0].example)}</p>`;
